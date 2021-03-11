@@ -18,8 +18,29 @@ public class Search {
     }
 
     public static int binarySearch(int[] array, int value) {
-        // TODO Implement iterative binary search
-        return 0;
+        int lowerIndex = 0;
+        int higherIndex = array.length - 1;
+
+        while (lowerIndex <= higherIndex) {
+
+            int middleIndex = higherIndex / 2;
+
+            if (array[middleIndex] < value) {
+                for (lowerIndex = middleIndex + 1; lowerIndex <= higherIndex; lowerIndex++) {
+                    if (array[lowerIndex] == value)
+                        return lowerIndex;
+                }
+
+            } else if (array[middleIndex] > value) {
+                for (higherIndex = middleIndex - 1; higherIndex >= lowerIndex; higherIndex--) {
+                    if (array[higherIndex] == value)
+                        return higherIndex;
+                }
+
+            } else
+                return middleIndex;
+        }
+        return -1;
     }
 
     public static int binarySearchRecursive(int[] array, int value) {
