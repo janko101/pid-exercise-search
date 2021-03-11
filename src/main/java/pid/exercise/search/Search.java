@@ -10,8 +10,11 @@ package pid.exercise.search;
 public class Search {
 
     public static int linearSearch(int[] array, int value) {
-        // TODO Implement linear search
-        return 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value)
+                return i;
+        }
+        return -1;
     }
 
     public static int binarySearch(int[] array, int value) {
